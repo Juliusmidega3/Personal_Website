@@ -4,8 +4,10 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='index'), 
+    path('', views.index, name="index"),
+    path('send_email/', views.send_email, name='send_email'),
 ]
 
+# This will serve static files during development
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
